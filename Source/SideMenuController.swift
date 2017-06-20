@@ -150,8 +150,8 @@ open class SideMenuController: UIViewController, UIGestureRecognizerDelegate {
         return type(of: self).preferences
     }()
     
-    fileprivate(set) open var centerViewController: UIViewController!
-    fileprivate(set) open var sideViewController: UIViewController!
+    open var centerViewController: UIViewController!
+    open var sideViewController: UIViewController!
     var centerNavController: UINavigationController? {
         return centerViewController as? UINavigationController
     }
