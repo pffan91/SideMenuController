@@ -170,7 +170,7 @@ open class SideMenuController: UIViewController, UIGestureRecognizerDelegate {
     }()
     
     var screenSize: CGSize {
-        return self.view.frame.size
+        return UIScreen.main.bounds.size
     }
     
     // MARK:- View lifecycle -
