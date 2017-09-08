@@ -170,7 +170,7 @@ open class SideMenuController: UIViewController, UIGestureRecognizerDelegate {
     }()
     
     var screenSize: CGSize {
-        return UIScreen.main.bounds.size
+        return self.view.frame.size
     }
     
     // MARK:- View lifecycle -
@@ -207,9 +207,18 @@ open class SideMenuController: UIViewController, UIGestureRecognizerDelegate {
     override open func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         
-        coordinator.animate(alongsideTransition: { _ in
-            self.repositionViews()
-        }, completion: nil)
+        switch UIDevice.current.orientation{
+        case .portrait:
+            coordinator.animate(alongsideTransition: { _ in
+                self.repositionViews()
+            }, completion: nil)
+        case .portraitUpsideDown:
+            coordinator.animate(alongsideTransition: { _ in
+                self.repositionViews()
+            }, completion: nil)
+        default:
+            break
+        }
     }
     
     // MARK: - Configurations -
