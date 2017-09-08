@@ -193,6 +193,7 @@ open class SideMenuController: UIViewController, UIGestureRecognizerDelegate {
     open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         NotificationCenter.default.addObserver(self, selector: #selector(SideMenuController.repositionViews), name: .UIApplicationWillChangeStatusBarFrame, object: UIApplication.shared)
+        NotificationCenter.default.addObserver(self, selector: #selector(SideMenuController.repositionViews), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
     }
     
     override open func viewWillDisappear(_ animated: Bool) {
